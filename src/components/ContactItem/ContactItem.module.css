@@ -1,0 +1,20 @@
+.items{
+    width: 300px;
+
+    padding: 5px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-top: 1px solid rgb(31, 31, 32);
+}
+
+.btn{
+    width: 70px;
+    height: 30px;
+
+    margin-left: 15px;
+}
+
+.span{
+    font-weight: 600;
+}

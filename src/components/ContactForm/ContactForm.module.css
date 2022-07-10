@@ -1,0 +1,28 @@
+.form{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid black;
+}
+.label{
+    display: flex;
+    flex-direction: column;
+}
+
+.input{
+    width: 300px;
+
+    margin-bottom: 10px;
+}
+
+.btn{
+    padding: 10px;
+    background-color: rgb(175, 191, 202);
+    border: 1px solid transparent;
+}
+
+.btn:hover,
+.btn:focus{
+    background-color: rgb(236, 208, 190);
+}
