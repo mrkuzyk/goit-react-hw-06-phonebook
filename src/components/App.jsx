@@ -7,7 +7,7 @@ import style from './App.module.css';
 import { useSelector, useDispatch } from "react-redux";
 import { add, deleted } from "redux/contactsSlice";
 import { filtered } from "redux/searchFilterSlice";
-
+import getVisibleContact from "helpers/getVisibleContact";
 
 export function App() {
   const dispatch = useDispatch();
@@ -38,11 +38,6 @@ export function App() {
     dispatch(filtered(e.currentTarget.value)) // отримую значення з інпуту і записую його
   };
 
-  const getVisibleContact = () => {
-    const normalizedFilter = filter.toLowerCase(); // що не було похибки, то підношу всі до великих букв
-    return contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter)); // фільтрую і повертаю тільки ті контакти, які відповідають пошуку
-  };
-
   useEffect(() => {
     window.localStorage.setItem('contacts', JSON.stringify(contacts)) // записую в локал сторедж контакти
   }, [contacts])
@@ -57,7 +52,7 @@ export function App() {
         onChange={searchFilter}
       />
       <ContactList
-        contacts={getVisibleContact()}
+        contacts={getVisibleContact(filter, contacts)}
         onDeleteContact={deleteContact}
       />
     </div>
